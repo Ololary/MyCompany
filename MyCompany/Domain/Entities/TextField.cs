@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 public class TextField : EntityBase
 {
     [Required]
-    public string? Codeword { get; set; }
+    public string? CodeWord { get; set; }
 
     [Display(Name = "Название станицы (заголвок)")]
     public override string? Title { get; set; } = "Информационная страница";
