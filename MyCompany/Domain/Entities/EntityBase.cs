@@ -1,35 +1,37 @@
-using Microsoft.Build.Framework;
+п»їusing System;
 using System.ComponentModel.DataAnnotations;
 
-
-public abstract class EntityBase
+namespace MyCompany.Domain.Entities
 {
-    protected EntityBase()=> DateAdded= DateTime.UtcNow;
+    public abstract class EntityBase
+    {
+        protected EntityBase() => DateAdded = DateTime.UtcNow;
 
-    [System.ComponentModel.DataAnnotations.Required]
-    public Guid Id { get; set; }
+        [Required]
+        public Guid Id { get;set; }
 
-    [Display(Name ="Название (заголовок)")]
-    public virtual string? Title { get; set; }
+        [Display(Name = "РќР°Р·РІР°РЅРёРµ (Р·Р°РіРѕР»РѕРІРѕРє)")]
+        public virtual string? Title { get; set; }
 
-    [Display(Name = "Краткое описание")]
-    public virtual string? Subtitle { get; set; }
+        [Display(Name = "РљСЂР°С‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ")]
+        public virtual string? Subtitle { get; set; }
 
-    [Display(Name = "Полное описание")]
-    public virtual string? Text { get; set; }
+        [Display(Name = "РџРѕР»РЅРѕРµ РѕРїРёСЃР°РЅРёРµ")]
+        public virtual string? Text { get; set; }
 
-    [Display(Name = "Титульная картинка")]
-    public virtual string? TitleImagePath { get; set; }
+        [Display(Name = "РўРёС‚СѓР»СЊРЅР°СЏ РєР°СЂС‚РёРЅРєР°")]
+        public virtual string? TitleImagePath { get; set; }
 
-    [Display(Name = "SEO метатег Title")]
-    public string? Metatitle { get; set; }
+        [Display(Name = "SEO РјРµС‚Р°С‚РµРі Title")]
+        public string? MetaTitle { get; set; }
 
-    [Display(Name = "SEO метатег Description")]
-    public string? MetaDiscription { get; set; }
+        [Display(Name = "SEO РјРµС‚Р°С‚РµРі Description")]
+        public string? MetaDescription { get; set; }
 
-    [Display(Name = "SEO метатег KeyWords")]
-    public string? MetaKeywords { get; set; }
+        [Display(Name = "SEO РјРµС‚Р°С‚РµРі Keywords")]
+        public string? MetaKeywords { get; set; }
 
-    [DataType(DataType.Time)]
-    public DateTime DateAdded { get; set; }
+        [DataType(DataType.Time)]
+        public DateTime DateAdded { get; set; }
+    }
 }

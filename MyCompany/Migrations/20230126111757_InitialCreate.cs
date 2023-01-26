@@ -53,7 +53,7 @@ namespace MyCompany.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Serviceitems",
+                name: "ServiceItems",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -61,14 +61,14 @@ namespace MyCompany.Migrations
                     Subtitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TitleImagePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Metatitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MetaDiscription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MetaTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MetaDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MetaKeywords = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Serviceitems", x => x.Id);
+                    table.PrimaryKey("PK_ServiceItems", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -81,8 +81,8 @@ namespace MyCompany.Migrations
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Subtitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TitleImagePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Metatitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MetaDiscription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MetaTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MetaDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MetaKeywords = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -205,16 +205,16 @@ namespace MyCompany.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "3b62472e-4f66-49fa-a20f-e7685b9565d8", 0, "40073743-456c-4fc5-9d98-704c2a151543", "my@email.com", true, false, null, "MY@EMAIL.COM", "ADMIN", "AQAAAAIAAYagAAAAED4umQysodrbFXaMvbGmbNeXVRC1A5A+3pBBxvhUhTJbUxTyKkbuCoCUQEt8oedRsQ==", null, false, "", false, "admin" });
+                values: new object[] { "3b62472e-4f66-49fa-a20f-e7685b9565d8", 0, "905697d2-b514-46ac-8148-e763ae737808", "my@email.com", true, false, null, "MY@EMAIL.COM", "ADMIN", "AQAAAAIAAYagAAAAEMSxGy+ZYzUZunYV7TE/7O8qwkyfY7H+zvOSMZmSKocY9pbwd2LnB/inK1r1k+nIEw==", null, false, "", false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "TextFields",
-                columns: new[] { "Id", "CodeWord", "DateAdded", "MetaDiscription", "MetaKeywords", "Metatitle", "Subtitle", "Text", "Title", "TitleImagePath" },
+                columns: new[] { "Id", "CodeWord", "DateAdded", "MetaDescription", "MetaKeywords", "MetaTitle", "Subtitle", "Text", "Title", "TitleImagePath" },
                 values: new object[,]
                 {
-                    { new Guid("4aa76a4c-c59d-409a-84c1-06e6487a137a"), "PageContacts", new DateTime(2023, 1, 25, 14, 36, 39, 285, DateTimeKind.Utc).AddTicks(9984), null, null, null, null, "Содержание заполняется администратором", "Контакты", null },
-                    { new Guid("63dc8fa6-07ae-4391-8916-e057f71239ce"), "PageIndex", new DateTime(2023, 1, 25, 14, 36, 39, 285, DateTimeKind.Utc).AddTicks(9946), null, null, null, null, "Содержание заполняется администратором", "Главная", null },
-                    { new Guid("70bf165a-700a-4156-91c0-e83fce0a277f"), "PageServices", new DateTime(2023, 1, 25, 14, 36, 39, 285, DateTimeKind.Utc).AddTicks(9975), null, null, null, null, "Содержание заполняется администратором", "Наши услуги", null }
+                    { new Guid("4aa76a4c-c59d-409a-84c1-06e6487a137a"), "PageContacts", new DateTime(2023, 1, 26, 11, 17, 57, 98, DateTimeKind.Utc).AddTicks(7898), null, null, null, null, "Содержание заполняется администратором", "Контакты", null },
+                    { new Guid("63dc8fa6-07ae-4391-8916-e057f71239ce"), "PageIndex", new DateTime(2023, 1, 26, 11, 17, 57, 98, DateTimeKind.Utc).AddTicks(7855), null, null, null, null, "Содержание заполняется администратором", "Главная", null },
+                    { new Guid("70bf165a-700a-4156-91c0-e83fce0a277f"), "PageServices", new DateTime(2023, 1, 26, 11, 17, 57, 98, DateTimeKind.Utc).AddTicks(7889), null, null, null, null, "Содержание заполняется администратором", "Наши услуги", null }
                 });
 
             migrationBuilder.InsertData(
@@ -281,7 +281,7 @@ namespace MyCompany.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Serviceitems");
+                name: "ServiceItems");
 
             migrationBuilder.DropTable(
                 name: "TextFields");

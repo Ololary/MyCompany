@@ -1,14 +1,16 @@
-using System.ComponentModel.DataAnnotations;
+п»їusing System.ComponentModel.DataAnnotations;
 
-public class TextField : EntityBase
+namespace MyCompany.Domain.Entities
 {
-    [Required]
-    public string? CodeWord { get; set; }
+    public class TextField : EntityBase
+    {
+        [Required]
+        public string? CodeWord { get; set; }
 
-    [Display(Name = "Название станицы (заголвок)")]
-    public override string? Title { get; set; } = "Информационная страница";
+        [Display(Name = "РќР°Р·РІР°РЅРёРµ СЃС‚СЂР°РЅРёС†С‹ (Р·Р°РіРѕР»РѕРІРѕРє)")]
+        public override string? Title { get; set; } = "РРЅС„РѕСЂРјР°С†РёРѕРЅРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°";
 
-    [Display(Name = "Содержание страницы")]
-    public override string? Text { get; set; } = "Содержание заполняется администратором";
-
+        [Display(Name = "CРѕРґРµСЂР¶Р°РЅРёРµ СЃС‚СЂР°РЅРёС†С‹")]
+        public override string? Text { get; set; } = "РЎРѕРґРµСЂР¶Р°РЅРёРµ Р·Р°РїРѕР»РЅСЏРµС‚СЃСЏ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂРѕРј";
+    }
 }

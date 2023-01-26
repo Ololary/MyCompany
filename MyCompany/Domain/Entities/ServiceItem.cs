@@ -1,16 +1,17 @@
-using System.ComponentModel.DataAnnotations;
+п»їusing System.ComponentModel.DataAnnotations;
 
-public class Serviceitem : EntityBase
+namespace MyCompany.Domain.Entities
 {
-    [Required(ErrorMessage ="Заполните назвагие услуги")]
-    [Display(Name = "Название услуги")]
-    public override string? Title { get; set; }
+    public class ServiceItem : EntityBase
+    {
+        [Required(ErrorMessage = "Р—Р°РїРѕР»РЅРёС‚Рµ РЅР°Р·РІР°РЅРёРµ СѓСЃР»СѓРіРё")]
+        [Display(Name = "РќР°Р·РІР°РЅРёРµ СѓСЃР»СѓРіРё")]
+        public override string? Title { get; set; }
 
-    [Display(Name = "Краткое описание услуги")]
-    public override string? Subtitle { get; set; }
+        [Display(Name = "РљСЂР°С‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ СѓСЃР»СѓРіРё")]
+        public override string? Subtitle { get; set; }
 
-    [Display(Name = "Полное описание услуги")]
-    public override string? Text { get; set; }
-
-
+        [Display(Name = "РџРѕР»РЅРѕРµ РѕРїРёСЃР°РЅРёРµ СѓСЃР»СѓРіРё")]
+        public override string? Text { get; set; }
+    }
 }

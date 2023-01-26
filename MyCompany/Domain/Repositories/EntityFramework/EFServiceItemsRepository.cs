@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using MyCompany.Domain.Entities;
 using MyCompany.Domain.Repositories.Abstract;
 
 namespace MyCompany.Domain.Repositories.EntityFramework
@@ -13,17 +14,17 @@ namespace MyCompany.Domain.Repositories.EntityFramework
             this.context = context;
         }
 
-        public IQueryable<Serviceitem> GetServiceItems()
+        public IQueryable<ServiceItem> GetServiceItems()
         {
-            return context.Serviceitems;
+            return context.ServiceItems;
         }
 
-        public Serviceitem GetServiceItemById(Guid id)
+        public ServiceItem GetServiceItemById(Guid id)
         {
-            return context.Serviceitems.FirstOrDefault(x => x.Id == id);
+            return context.ServiceItems.FirstOrDefault(x => x.Id == id);
         }
 
-        public void SaveServiceItem(Serviceitem entity)
+        public void SaveServiceItem(ServiceItem entity)
         {
             if (entity.Id == default)
                 context.Entry(entity).State = EntityState.Added;
@@ -34,7 +35,7 @@ namespace MyCompany.Domain.Repositories.EntityFramework
 
         public void DeleteServiceItem(Guid id)
         {
-            context.Serviceitems.Remove(new Serviceitem() { Id = id });
+            context.ServiceItems.Remove(new ServiceItem() { Id = id });
             context.SaveChanges();
         }
     }

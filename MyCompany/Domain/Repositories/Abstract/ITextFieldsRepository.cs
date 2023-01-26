@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-
+using MyCompany.Domain.Entities;
 
 namespace MyCompany.Domain.Repositories.Abstract
 {

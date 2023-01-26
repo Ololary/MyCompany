@@ -8,7 +8,6 @@ using MyCompany.Domain.Repositories.EntityFramework;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
 builder.Configuration.SetBasePath(Directory.GetCurrentDirectory());
 builder.Configuration.AddJsonFile("appsettings.json");
 builder.Configuration.Bind("Project", new Config());
@@ -42,6 +41,18 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 });
 
+//Настраиваем политику авторизации для Admin area
+builder.Services.AddAuthorization(el =>
+{
+    el.AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
+});
+
+//Добавляем сервисы для контроллеров и представлений (MVC)
+builder.Services.AddControllersWithViews(el =>
+{
+    el.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
+});
+
 
 var app = builder.Build();
 
@@ -64,6 +75,9 @@ app.UseAuthorization();
 //Определяю маршруты
 app.UseHttpsRedirection();
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    name: "admin", pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.Run();

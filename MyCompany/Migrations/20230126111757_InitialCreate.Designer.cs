@@ -5,13 +5,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using MyCompany.Domain;
 
 #nullable disable
 
 namespace MyCompany.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230125143639_InitialCreate")]
+    [Migration("20230126111757_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -153,13 +154,13 @@ namespace MyCompany.Migrations
                         {
                             Id = "3b62472e-4f66-49fa-a20f-e7685b9565d8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "40073743-456c-4fc5-9d98-704c2a151543",
+                            ConcurrencyStamp = "905697d2-b514-46ac-8148-e763ae737808",
                             Email = "my@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MY@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAED4umQysodrbFXaMvbGmbNeXVRC1A5A+3pBBxvhUhTJbUxTyKkbuCoCUQEt8oedRsQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMSxGy+ZYzUZunYV7TE/7O8qwkyfY7H+zvOSMZmSKocY9pbwd2LnB/inK1r1k+nIEw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -255,7 +256,7 @@ namespace MyCompany.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Serviceitem", b =>
+            modelBuilder.Entity("MyCompany.Domain.Entities.ServiceItem", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -264,13 +265,13 @@ namespace MyCompany.Migrations
                     b.Property<DateTime>("DateAdded")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("MetaDiscription")
+                    b.Property<string>("MetaDescription")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MetaKeywords")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Metatitle")
+                    b.Property<string>("MetaTitle")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Subtitle")
@@ -288,10 +289,10 @@ namespace MyCompany.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Serviceitems");
+                    b.ToTable("ServiceItems");
                 });
 
-            modelBuilder.Entity("TextField", b =>
+            modelBuilder.Entity("MyCompany.Domain.Entities.TextField", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -304,13 +305,13 @@ namespace MyCompany.Migrations
                     b.Property<DateTime>("DateAdded")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("MetaDiscription")
+                    b.Property<string>("MetaDescription")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MetaKeywords")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Metatitle")
+                    b.Property<string>("MetaTitle")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Subtitle")
@@ -334,7 +335,7 @@ namespace MyCompany.Migrations
                         {
                             Id = new Guid("63dc8fa6-07ae-4391-8916-e057f71239ce"),
                             CodeWord = "PageIndex",
-                            DateAdded = new DateTime(2023, 1, 25, 14, 36, 39, 285, DateTimeKind.Utc).AddTicks(9946),
+                            DateAdded = new DateTime(2023, 1, 26, 11, 17, 57, 98, DateTimeKind.Utc).AddTicks(7855),
                             Text = "Содержание заполняется администратором",
                             Title = "Главная"
                         },
@@ -342,7 +343,7 @@ namespace MyCompany.Migrations
                         {
                             Id = new Guid("70bf165a-700a-4156-91c0-e83fce0a277f"),
                             CodeWord = "PageServices",
-                            DateAdded = new DateTime(2023, 1, 25, 14, 36, 39, 285, DateTimeKind.Utc).AddTicks(9975),
+                            DateAdded = new DateTime(2023, 1, 26, 11, 17, 57, 98, DateTimeKind.Utc).AddTicks(7889),
                             Text = "Содержание заполняется администратором",
                             Title = "Наши услуги"
                         },
@@ -350,7 +351,7 @@ namespace MyCompany.Migrations
                         {
                             Id = new Guid("4aa76a4c-c59d-409a-84c1-06e6487a137a"),
                             CodeWord = "PageContacts",
-                            DateAdded = new DateTime(2023, 1, 25, 14, 36, 39, 285, DateTimeKind.Utc).AddTicks(9984),
+                            DateAdded = new DateTime(2023, 1, 26, 11, 17, 57, 98, DateTimeKind.Utc).AddTicks(7898),
                             Text = "Содержание заполняется администратором",
                             Title = "Контакты"
                         });

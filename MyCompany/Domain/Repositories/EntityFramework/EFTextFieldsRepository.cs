@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using MyCompany.Domain.Entities;
 using MyCompany.Domain.Repositories.Abstract;
 
 namespace MyCompany.Domain.Repositories.EntityFramework
@@ -20,7 +21,7 @@ namespace MyCompany.Domain.Repositories.EntityFramework
 
         public TextField GetTextFieldById(Guid id)
         {
-            return context.TextFields.FirstOrDefault(x => x.Id == id);
+            return  context.TextFields.FirstOrDefault(x => x.Id == id);
         }
 
         public TextField GetTextFieldByCodeWord(string codeWord)

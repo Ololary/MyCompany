@@ -1,62 +1,64 @@
+Ôªøusing System;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MyCompany.Domain.Entities;
 
-public class AppDbContext : IdentityDbContext<IdentityUser>
+namespace MyCompany.Domain
 {
-
-	public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-	public DbSet<TextField> TextFields { get; set; }
-	public DbSet<Serviceitem> Serviceitems { get; set; }
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    public class AppDbContext : IdentityDbContext<IdentityUser>
     {
-        base.OnModelCreating(modelBuilder);
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
+        public DbSet<TextField> TextFields { get; set; } 
+        public DbSet<ServiceItem> ServiceItems { get; set; }
+        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            Id = "44546e06-8719-4ad8-b88a-f271ae9d6eab",
-            Name = "admin",
-            NormalizedName = "ADMIN"
-        });
+            base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<IdentityUser>().HasData(new IdentityUser
-        {
-            Id = "3b62472e-4f66-49fa-a20f-e7685b9565d8",
-            UserName = "admin",
-            NormalizedUserName = "ADMIN",
-            Email = "my@email.com",
-            NormalizedEmail = "MY@EMAIL.COM",
-            EmailConfirmed = true,
-            PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, "superpassword"),
-            SecurityStamp = string.Empty
-        });
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
+            {
+                Id = "44546e06-8719-4ad8-b88a-f271ae9d6eab",
+                Name = "admin",
+                NormalizedName = "ADMIN"
+            });
 
-        modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
-        {
-            RoleId = "44546e06-8719-4ad8-b88a-f271ae9d6eab",
-            UserId = "3b62472e-4f66-49fa-a20f-e7685b9565d8"
-        });
+            _ = modelBuilder.Entity<IdentityUser>().HasData(new IdentityUser
+            {
+                Id = "3b62472e-4f66-49fa-a20f-e7685b9565d8",
+                UserName = "admin",
+                NormalizedUserName = "ADMIN",
+                Email = "my@email.com",
+                NormalizedEmail = "MY@EMAIL.COM",
+                EmailConfirmed = true,
+                PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, "superpassword"),
+                SecurityStamp = string.Empty
+            });
 
-        modelBuilder.Entity<TextField>().HasData(new TextField
-        {
-            Id = new Guid("63dc8fa6-07ae-4391-8916-e057f71239ce"),
-            CodeWord = "PageIndex",
-            Title = "√Î‡‚Ì‡ˇ"
-        });
-        modelBuilder.Entity<TextField>().HasData(new TextField
-        {
-            Id = new Guid("70bf165a-700a-4156-91c0-e83fce0a277f"),
-            CodeWord = "PageServices",
-            Title = "Õ‡¯Ë ÛÒÎÛ„Ë"
-        });
-        modelBuilder.Entity<TextField>().HasData(new TextField
-        {
-            Id = new Guid("4aa76a4c-c59d-409a-84c1-06e6487a137a"),
-            CodeWord = "PageContacts",
-            Title = " ÓÌÚ‡ÍÚ˚"
-        });
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            {
+                RoleId = "44546e06-8719-4ad8-b88a-f271ae9d6eab",
+                UserId = "3b62472e-4f66-49fa-a20f-e7685b9565d8"
+            });
 
-
+            modelBuilder.Entity<TextField>().HasData(new TextField { 
+                Id = new Guid("63dc8fa6-07ae-4391-8916-e057f71239ce"), 
+                CodeWord = "PageIndex", 
+                Title = "–ì–ª–∞–≤–Ω–∞—è"
+            });
+            modelBuilder.Entity<TextField>().HasData(new TextField
+            {
+                Id = new Guid("70bf165a-700a-4156-91c0-e83fce0a277f"), 
+                CodeWord = "PageServices", 
+                Title = "–ù–∞—à–∏ —É—Å–ª—É–≥–∏"
+            });
+            modelBuilder.Entity<TextField>().HasData(new TextField
+            {
+                Id = new Guid("4aa76a4c-c59d-409a-84c1-06e6487a137a"), 
+                CodeWord = "PageContacts", 
+                Title = "–ö–æ–Ω—Ç–∞–∫—Ç—ã"
+            });
+        }
     }
-
 }
