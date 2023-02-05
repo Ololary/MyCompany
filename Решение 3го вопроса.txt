@@ -1,0 +1,8 @@
+Решение 3го вопроса:
+
+Таблица Продукты "products"(id,Name), таблица Категории "categories"(id,Name), 
+общая таблица "both"(id, product_id,category_id):
+
+SELECT produts.Name, category.Name FROM both
+RIGHT JOIN products on both.product_id = products.ID
+JOIN category on both.category_id = category.ID
